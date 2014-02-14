@@ -8,27 +8,20 @@ class ArduinoDevice
   TURN_OFF_YELLOW_LIGHT = 3
   STROBE_YELLOW_LIGHT = 1
 
-  def turn_on_red_light
-    $serial_port.try(:write, TURN_ON_RED_LIGHT)
-  end
-
-  def turn_off_red_light
+  def activate_build_passed
     $serial_port.try(:write, TURN_OFF_RED_LIGHT)
-  end
-
-  def strobe_red_light
-    $serial_port.try(:write, STROBE_RED_LIGHT)
-  end
-
-  def turn_on_yellow_light
     $serial_port.try(:write, TURN_ON_YELLOW_LIGHT)
   end
 
-  def turn_off_yellow_light
+  def activate_build_failed
     $serial_port.try(:write, TURN_OFF_YELLOW_LIGHT)
+    $serial_port.try(:write, TURN_ON_RED_LIGHT)
   end
 
-  def strobe_yellow_light
+  def activate_build_starting
+    $serial_port.try(:write, TURN_OFF_RED_LIGHT)
+    $serial_port.try(:write, TURN_OFF_YELLOW_LIGHT)
     $serial_port.try(:write, STROBE_YELLOW_LIGHT)
   end
+
 end
