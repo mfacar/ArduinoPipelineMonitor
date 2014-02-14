@@ -26,6 +26,10 @@ gem 'turbolinks'
 
 gem 'dim'
 
+gem 'hash_validator'
+
+gem 'serialport'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
@@ -36,6 +40,8 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'pry-rails'
+  gem 'pry-nav'
 end
 
 # Use ActiveModel has_secure_password

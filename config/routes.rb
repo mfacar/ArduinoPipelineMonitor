@@ -1,4 +1,3 @@
 PipelineMonitor::Application.routes.draw do
-    post 'create_monitor', to: 'monitor#create'
-    resources :monitor, only: [ :new, :create ]
+    post 'update_status', to: 'monitor#update_status'
 end
