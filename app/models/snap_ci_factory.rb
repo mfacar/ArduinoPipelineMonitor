@@ -2,7 +2,9 @@ class SnapCiFactory
 
   def initialize(validator)
     @validator = validator
-    @commands = { "Passed" => BuildPassedCommand.new, "Failed" => BuildFailedCommand.new }
+    @commands = { "Passed" => BuildPassedCommand.new, 
+                  "Failed" => BuildFailedCommand.new, 
+                  "Starting" => BuildStartingCommand.new }
   end
 
   def create_command_from_request(request)

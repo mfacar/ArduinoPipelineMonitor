@@ -21,5 +21,11 @@ describe SnapCiFactory do
       command = factory.create_command_from_request(failed_build)
       command.should be_instance_of(BuildFailedCommand)
     end
+
+    it "should return build starting command when build status is failed" do
+      starting_build = {"monitor"=>{"project_name"=>"ernezto/feelme_server", "stage_name"=>"FastFeedback", "counter"=>36, "build_result"=>"Starting"}}
+      command = factory.create_command_from_request(starting_build)
+      command.should be_instance_of(BuildStartingCommand)
+    end
   end
 end
