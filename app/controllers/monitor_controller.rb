@@ -6,7 +6,7 @@ class MonitorController < ApplicationController
     puts "*"*100
     p params
     puts "*"*100
-    monitor.process_update(params)
+    monitor.process_status_update(params)
     render json: {success:true}
   end
 

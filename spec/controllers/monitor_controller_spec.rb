@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe MonitorController do
   describe "POST update status" do
-    let(:agent) { double("agent", process_update: nil) }
+    let(:agent) { double("agent", process_status_update: nil) }
 
     before(:each) do
       ServerContainer.stub(:pipeline_agent).and_return(agent)
@@ -11,7 +11,7 @@ describe MonitorController do
     it "should send receive params to monitor service" do
       params = {status: 'passed'}
       ServerContainer.pipeline_agent
-        .should_receive(:process_update)
+        .should_receive(:process_status_update)
         .with(hash_including(params))
       post :update_status, params
     end
