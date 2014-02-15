@@ -16,6 +16,12 @@ describe SnapCiFactory do
       command.should be_instance_of(BuildPassedCommand)
     end
 
+    it "should return build passed command when build status is passed no matter case" do
+      passed_build = {"monitor"=>{"project_name"=>"ernezto/feelme_server", "stage_name"=>"FastFeedback", "counter"=>36, "build_result"=>"PaSseD"}}
+      command = factory.create_command_from_request(passed_build)
+      command.should be_instance_of(BuildPassedCommand)
+    end
+
     it "should return build failed command when build status is failed" do
       failed_build = {"monitor"=>{"project_name"=>"ernezto/feelme_server", "stage_name"=>"FastFeedback", "counter"=>36, "build_result"=>"Failed"}}
       command = factory.create_command_from_request(failed_build)
