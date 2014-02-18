@@ -1,6 +1,6 @@
-class BuildStartingCommand
+class BuildStartingCommand < PipelineCommand
   def execute(device)
-    device.activate_build_starting
+    device.exec_serial_command(PipelineStatus::STARTING, self.stage)
     return {success: true}
   end
 end

@@ -1,7 +1,7 @@
-class BuildFailedCommand
+class BuildFailedCommand < PipelineCommand
 
   def execute(device)
-    device.activate_build_failed
+    device.exec_serial_command(PipelineStatus::FAILED, self.stage)
     return {success: true}
   end
 end

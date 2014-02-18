@@ -33,5 +33,12 @@ describe SnapCiFactory do
       command = factory.create_command_from_request(starting_build)
       command.should be_instance_of(BuildStartingCommand)
     end
+
+    it "should create the command with the stage from the request" do
+      stage = "Starting"
+      starting_build = {"monitor"=>{"project_name"=>"ernezto/feelme_server", "stage_name"=>stage, "counter"=>36, "build_result"=>"Starting"}}
+      command = factory.create_command_from_request(starting_build)
+      command.stage.should == stage
+    end
   end
 end

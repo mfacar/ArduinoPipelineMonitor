@@ -1,5 +1,5 @@
-module Enums
-  class PipelineStatus
-    PASSED = 1
-  end
+module PipelineStatus
+  PASSED = 1
+  STARTING = 2
+  FAILED = 3
 end
