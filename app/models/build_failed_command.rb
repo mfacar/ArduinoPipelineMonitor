@@ -1,3 +1,5 @@
+require 'enums/pipeline_status'
+
 class BuildFailedCommand < PipelineCommand
 
   def execute(device)
